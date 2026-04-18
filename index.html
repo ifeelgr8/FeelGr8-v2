@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choose your language / Choisissez votre langue</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -12,53 +11,99 @@
       padding: 0;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       font-family: Arial, sans-serif;
       overflow: hidden;
+      background: #dfe4ea;
     }
 
     .stage {
       position: relative;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
+      background: #dfe4ea;
     }
 
-    /* Image fills screen cleanly */
+    picture,
     .hero-image {
+      display: block;
       width: 100%;
       height: 100%;
+    }
+
+    .hero-image {
       object-fit: cover;
+      object-position: center center;
+      filter: saturate(1.02) contrast(1.02);
     }
 
-    /* Buttons */
-    .button-container {
+    .overlay {
       position: absolute;
-      bottom: 8%;
-      left: 50%;
-      transform: translateX(-50%);
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .headline-wrap {
+      width: 100%;
+      text-align: center;
+      padding-top: 5.5vh;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .headline {
+      display: inline-block;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 52px);
+      line-height: 1.12;
+      letter-spacing: 0.2px;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.22);
+    }
+
+    .button-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 6vh;
+      padding-left: 20px;
+      padding-right: 20px;
+      pointer-events: none;
+    }
+
+    .button-container {
       display: flex;
       gap: 20px;
-      width: 60%;
-      max-width: 700px;
-      justify-content: center;
+      width: min(760px, 64vw);
+      pointer-events: auto;
     }
 
     .btn {
       flex: 1;
       text-align: center;
-      padding: 18px;
+      padding: 17px 20px;
       border-radius: 14px;
       color: white;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
       font-size: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      transition: 0.2s;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+      transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
     }
 
     .btn:hover {
-      transform: scale(1.03);
-      opacity: 0.95;
+      transform: translateY(-1px) scale(1.02);
+      opacity: 0.96;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
     }
 
     .en {
@@ -69,108 +114,71 @@
       background: linear-gradient(135deg, #169a46, #28c55f);
     }
 
-    /* MOBILE */
+    @media (max-width: 1024px) {
+      .headline-wrap {
+        padding-top: 5vh;
+      }
+
+      .headline {
+        font-size: clamp(22px, 4vw, 42px);
+      }
+
+      .button-container {
+        width: min(820px, 78vw);
+      }
+    }
+
     @media (max-width: 700px) {
+      .hero-image {
+        object-position: center center;
+      }
+
+      .headline-wrap {
+        padding-top: 4.5vh;
+      }
+
+      .headline {
+        font-size: clamp(18px, 7vw, 34px);
+        max-width: 92vw;
+      }
+
+      .button-wrap {
+        padding-bottom: 3.5vh;
+      }
+
       .button-container {
         flex-direction: column;
-        width: 85%;
-        bottom: 5%;
-        gap: 15px;
+        width: min(360px, 88vw);
+        gap: 14px;
       }
 
       .btn {
         font-size: 18px;
-        padding: 16px;
+        padding: 16px 18px;
+        border-radius: 16px;
       }
     }
   </style>
 </head>
-
-<body>
-
-  <div class="stage">
-
-    <!-- RESPONSIVE IMAGE SWITCH -->
-    <picture>
-      <source media="(max-width: 700px)" srcset="language-page-mobile.png?v=2">
-      <img src="language-page.png?v=2" alt="Feel great again. It starts here." class="hero-image">
-    </picture>
-
-    <!-- BUTTONS -->
-    <div class="button-container">
-      <a href="/en/" class="btn en">🇬🇧 English</a>
-      <a href="/fr/" class="btn fr">🇫🇷 Français</a>
-    </div>
-
-  </div>
-
-</body>
-</html>      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 20px;
-      width: 60%;
-      max-width: 700px;
-      justify-content: center;
-    }
-
-    .btn {
-      flex: 1;
-      text-align: center;
-      padding: 18px;
-      border-radius: 14px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.03);
-      opacity: 0.95;
-    }
-
-    .en {
-      background: linear-gradient(135deg, #2347b7, #2b63ef);
-    }
-
-    .fr {
-      background: linear-gradient(135deg, #169a46, #28c55f);
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      .button-container {
-        flex-direction: column;
-        width: 85%;
-        bottom: 5%;
-        gap: 15px;
-      }
-
-      .btn {
-        font-size: 18px;
-        padding: 16px;
-      }
-    }
-  </style>
-</head>
-
 <body>
   <div class="stage">
-
-    <!-- THIS is the magic switch between desktop & mobile -->
     <picture>
-      <source media="(max-width: 700px)" srcset="language-page-mobile.png">
-      <img src="language-page.png?v=2" alt="Feel great again. It starts here." class="hero-image">
+      <source media="(max-width: 700px)" srcset="language-page-mobile-clean.png?v=1">
+      <img src="language-page-clean.png?v=1" alt="Feel great again" class="hero-image">
     </picture>
 
-    <div class="button-container">
-      <a href="/en/" class="btn en">🇬🇧 English</a>
-      <a href="/fr/" class="btn fr">🇫🇷 Français</a>
-    </div>
+    <div class="overlay">
+      <div class="headline-wrap">
+        <div class="headline">Feel great again — it starts here.</div>
+      </div>
 
+      <div class="button-wrap">
+        <div class="button-container">
+          <a href="/en/" class="btn en">🇬🇧 English</a>
+          <a href="/fr/" class="btn fr">🇫🇷 Français</a>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
