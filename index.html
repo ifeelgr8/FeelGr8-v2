@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choose your language / Choisissez votre langue</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -12,8 +11,14 @@
       padding: 0;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       font-family: Arial, sans-serif;
+      background: #dfe4ea;
+    }
+
+    body {
       overflow: hidden;
     }
 
@@ -21,40 +26,47 @@
       position: relative;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
+      background: #dfe4ea;
     }
 
-    /* IMAGE */
+    picture,
     .hero-image {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
 
-    /* HEADLINE (clean, one-line, premium feel) */
+    .hero-image {
+      object-fit: cover;
+      object-position: center center;
+    }
+
     .headline {
       position: absolute;
-      top: 8%;
-      width: 100%;
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
       text-align: center;
       color: white;
-      font-size: 2.5rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      white-space: nowrap;
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 48px);
+      line-height: 1.15;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.28);
+      z-index: 3;
+      pointer-events: none;
     }
 
-    /* BUTTONS */
     .button-container {
       position: absolute;
-      bottom: 8%;
       left: 50%;
+      bottom: 5%;
       transform: translateX(-50%);
       display: flex;
       gap: 20px;
-      width: 60%;
-      max-width: 700px;
-      justify-content: center;
+      width: min(700px, 62vw);
+      z-index: 3;
     }
 
     .btn {
@@ -63,11 +75,11 @@
       padding: 18px;
       border-radius: 14px;
       color: white;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
       font-size: 18px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      transition: 0.2s;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .btn:hover {
@@ -83,50 +95,41 @@
       background: linear-gradient(135deg, #169a46, #28c55f);
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
       .headline {
-        font-size: 1.6rem;
-        top: 6%;
-        white-space: normal;
+        top: 5%;
+        font-size: clamp(18px, 7vw, 30px);
+        line-height: 1.2;
       }
 
       .button-container {
         flex-direction: column;
-        width: 85%;
-        bottom: 5%;
-        gap: 15px;
+        width: 86%;
+        bottom: 3.5%;
+        gap: 14px;
       }
 
       .btn {
         padding: 16px;
+        font-size: 18px;
+        border-radius: 16px;
       }
     }
   </style>
 </head>
-
 <body>
-
   <div class="stage">
-
-    <!-- IMAGE SWITCH -->
     <picture>
       <source media="(max-width: 700px)" srcset="language-page-mobile.png?v=1">
-      <img src="language-page.png?v=1" alt="Feel great again — it starts here." class="hero-image">
+      <img src="language-page.png?v=1" alt="Feel great again" class="hero-image">
     </picture>
 
-    <!-- HEADLINE -->
-    <div class="headline">
-      Feel great again — it starts here.
-    </div>
+    <div class="headline">Feel great again — it starts here.</div>
 
-    <!-- BUTTONS -->
     <div class="button-container">
       <a href="/en/" class="btn en">🇬🇧 English</a>
       <a href="/fr/" class="btn fr">🇫🇷 Français</a>
     </div>
-
   </div>
-
 </body>
 </html>
