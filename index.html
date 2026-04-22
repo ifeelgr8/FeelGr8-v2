@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose your language / Choisissez votre langue</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #dfe4ea;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    picture,
+    .hero-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-image {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* 🔥 Top gradient */
+    .stage::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 35%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 🔥 HEADLINE */
+    .headline {
+      position: absolute;
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      text-align: center;
+      color: rgba(255,255,255,0.96);
+      font-weight: 600;
+      font-size: clamp(32px, 3vw, 64px);
+      line-height: 1.15;
+      text-shadow: 0 6px 24px rgba(0,0,0,0.3);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* 🔥 CTA (Desktop = centered bottom) */
+    .button-container {
+      position: absolute;
+      left: 50%;
+      bottom: 6%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 40px;
+      z-index: 3;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      min-width: 150px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+
+    .en {
+      background: linear-gradient(135deg, #2347b7, #2b63ef);
+    }
+
+    .fr {
+      background: linear-gradient(135deg, #169a46, #28c55f);
+    }
+
+    /* 📱 MOBILE */
+    @media (max-width: 700px) {
+
+      .headline {
+        top: 4.5%;
+        width: 90%;
+        font-size: clamp(18px, 7vw, 32px);
+      }
+
+      .button-container {
+        flex-direction: column;
+        width: 86%;
+        gap: 14px;
+        bottom: 3%;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 18px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="stage">
+
+    <picture>
+      <source media="(max-width: 700px)" srcset="language-page-mobile.png">
+      <img src="language-page.png" alt="Feel great again" class="hero-image">
+    </picture>
+
+    <!-- HEADLINE -->
+    <div class="headline">
+      Feel like yourself again — it starts here.
+    </div>
+
+    <!-- CTA -->
+    <div class="button-container">
+      <a href="/en/" class="btn en">🇬🇧 English</a>
+      <a href="/fr/" class="btn fr">🇫🇷 Français</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
