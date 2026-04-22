@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choose your language / Choisissez votre langue</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -27,7 +28,6 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      background: #dfe4ea;
     }
 
     picture,
@@ -39,40 +39,51 @@
 
     .hero-image {
       object-fit: cover;
-      object-position: center center;
+      object-position: center;
     }
 
+    /* 🔥 Top gradient for headline visibility */
+    .stage::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 35%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 🔥 HEADLINE */
     .headline {
       position: absolute;
       top: 6%;
       left: 50%;
       transform: translateX(-50%);
-      width: 92%;
+      width: 70%;
       text-align: center;
-      color: white;
+      color: rgba(255,255,255,0.96);
       font-weight: 600;
-      font-size: clamp(24px, 3vw, 48px);
+      font-size: clamp(32px, 3vw, 64px);
       line-height: 1.15;
-      text-shadow: 0 4px 18px rgba(0,0,0,0.28);
+      text-shadow: 0 6px 24px rgba(0,0,0,0.3);
       z-index: 3;
       pointer-events: none;
     }
 
+    /* 🔥 CTA BUTTONS (Desktop Layout) */
     .button-container {
       position: absolute;
-      left: 50%;
-      bottom: 5%;
-      transform: translateX(-50%);
+      right: 6%;
+      bottom: 8%;
       display: flex;
-      gap: 20px;
-      width: min(700px, 62vw);
+      gap: 16px;
       z-index: 3;
     }
 
     .btn {
-      flex: 1;
-      text-align: center;
-      padding: 18px;
+      padding: 16px 22px;
       border-radius: 14px;
       color: white;
       font-weight: 700;
@@ -83,7 +94,7 @@
     }
 
     .btn:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
       opacity: 0.95;
     }
 
@@ -95,41 +106,53 @@
       background: linear-gradient(135deg, #169a46, #28c55f);
     }
 
+    /* 📱 Mobile fallback (same as before) */
     @media (max-width: 700px) {
+
       .headline {
-        top: 5%;
-        font-size: clamp(18px, 7vw, 30px);
-        line-height: 1.2;
+        top: 4.5%;
+        width: 90%;
+        font-size: clamp(18px, 7vw, 32px);
       }
 
       .button-container {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 3%;
         flex-direction: column;
         width: 86%;
-        bottom: 3.5%;
-        gap: 14px;
       }
 
       .btn {
-        padding: 16px;
-        font-size: 18px;
-        border-radius: 16px;
+        text-align: center;
       }
     }
+
   </style>
 </head>
+
 <body>
+
   <div class="stage">
+
     <picture>
-      <source media="(max-width: 700px)" srcset="language-page-mobile.png?v=1">
-      <img src="language-page.png?v=1" alt="Feel great again" class="hero-image">
+      <source media="(max-width: 700px)" srcset="language-page-mobile.png?v=3">
+      <img src="language-page-desktop.png?v=1" alt="Feel great again" class="hero-image">
     </picture>
 
-    <div class="headline">Feel great again — it starts here.</div>
+    <!-- 🔥 HEADLINE -->
+    <div class="headline">
+      Feel like yourself again — it starts here.
+    </div>
 
+    <!-- 🔥 CTA -->
     <div class="button-container">
       <a href="/en/" class="btn en">🇬🇧 English</a>
       <a href="/fr/" class="btn fr">🇫🇷 Français</a>
     </div>
+
   </div>
+
 </body>
 </html>
