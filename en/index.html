@@ -1,1 +1,130 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feel Great Again</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0b3f78, #114f95);
+  color: white;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background: #f5a000;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-btn {
+  margin-top: 15px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.privacy {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero section">
+  <div class="container">
+    <h1>Not feeling your best lately?</h1>
+
+    <p>Your body naturally relies on communication to recover, respond, and stay balanced. Over time, that process can slow down.</p>
+
+    <p><strong>Your body is designed to recover and function better when it has the proper resources.</strong></p>
+
+    <p><strong>REDOX helps support it — so you can feel great again.</strong></p>
+
+    <a href="#contact" class="btn">Learn More</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container card">
+    <h2>What is REDOX?</h2>
+
+    <p>When your cells communicate properly, your body can better support recovery, energy, and overall wellness.</p>
+
+    <p>Redox signaling molecules help support the communication your body relies on every day.</p>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container card">
+    <h2>Contact Me</h2>
+
+    <form action="https://formspree.io/f/mldnwykp" method="POST" class="contact-form">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" placeholder="Your Message"></textarea>
+
+      <button type="submit" class="btn contact-btn">Send Message</button>
+
+      <p class="privacy">
+        We respect your privacy. Your information will only be used to respond to your request and will be processed securely.
+      </p>
+
+    </form>
+  </div>
+</section>
+
+</body>
+</html>
