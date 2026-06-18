@@ -1478,7 +1478,83 @@
   box-shadow: 0 12px 28px rgba(8, 47, 90, 0.08);
 }
 
-</style>
+
+    /* Redox Biology Throughout Nature Section */
+    .redox-nature .card {
+      padding: 46px 38px;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(31,111,209,.08), transparent 26%),
+        radial-gradient(circle at 86% 28%, rgba(245,160,0,.11), transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #f6fbff 100%);
+      overflow: hidden;
+    }
+    .nature-intro {
+      max-width: 860px;
+      margin: 0 auto 38px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .nature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .nature-row + .nature-row { margin-top: 34px; }
+    .nature-image {
+      min-height: 310px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(8, 47, 90, 0.12);
+      border: 1px solid #dbe8f8;
+      background: #edf6ff;
+    }
+    .nature-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 310px;
+      object-fit: cover;
+      display: block;
+    }
+    .nature-copy {
+      background: #ffffff;
+      border: 1px solid #dbe8f8;
+      border-radius: 22px;
+      padding: 34px 30px;
+      box-shadow: 0 12px 28px rgba(8, 47, 90, 0.08);
+    }
+    .nature-copy h3 {
+      color: var(--navy);
+      font-size: 1.55rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .nature-copy p {
+      color: #617287;
+      font-size: 1.03rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .nature-closing {
+      margin: 38px auto 0;
+      max-width: 820px;
+      text-align: center;
+      color: var(--navy);
+      font-size: 1.14rem;
+      font-weight: 700;
+    }
+    @media (max-width: 850px) {
+      .redox-nature .card { padding: 36px 24px; }
+      .nature-row, .nature-row.reverse { grid-template-columns: 1fr; }
+      .nature-row.reverse .nature-copy { order: 2; }
+      .nature-row.reverse .nature-image { order: 1; }
+      .nature-image, .nature-image img { min-height: 230px; }
+    }
+
+  </style>
 </head>
 <body>
   <section class="hero section" id="top">
@@ -1681,6 +1757,37 @@
       </div>
     </div>
   </section>
+
+  <section class="section redox-nature">
+    <div class="container">
+      <div class="card">
+        <span class="eyebrow">Cellular communication in life</span>
+        <h2>Redox Biology Throughout Nature</h2>
+        <p class="nature-intro">
+          <strong>Redox signaling molecules aren't unique to humans.</strong>
+          They are found throughout nature and play an important role in cellular communication
+          in people, animals, and plants alike.
+        </p>
+        <div class="nature-row">
+          <div class="nature-image"><img src="redox_plants_seedlings.png" alt="Young seedlings growing in sunlight"></div>
+          <div class="nature-copy">
+            <h3>Plants</h3>
+            <p>Plants use redox signaling as part of their natural communication and response systems.</p>
+          </div>
+        </div>
+        <div class="nature-row reverse">
+          <div class="nature-copy">
+            <h3>Animals</h3>
+            <p>Animals rely on the same fundamental cellular communication processes found throughout nature.</p>
+          </div>
+          <div class="nature-image"><img src="redox_animals_dog_cat.png" alt="A dog and kitten resting together"></div>
+        </div>
+        <p class="nature-closing">Healthy cellular communication helps living organisms adapt, respond, and function optimally.</p>
+      </div>
+    </div>
+  </section>
+
+
 
   <section class="section cta" id="contact">
     <div class="container">
