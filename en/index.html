@@ -2296,6 +2296,13 @@ It is part of a broader field of science involving cellular communication, oxida
         });
 
         if (response.ok) {
+          // GA4 key event: count only successful contact-form submissions.
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              form_name: 'contact_form',
+              form_language: 'en'
+            });
+          }
           form.reset();
           status.className = 'form-status success';
           status.textContent = 'Thanks — your message has been sent. I’ll get back to you soon.';
